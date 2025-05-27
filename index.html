@@ -47,12 +47,14 @@
     <button id="clickButton" onclick="clickCounter()">Кликни меня!</button>
 
     <script>
-        let count = 0;
+        let count = localStorage.getItem('clickCount') || 0;
         const counterElement = document.getElementById('counter');
+        counterElement.textContent = count;
 
         function clickCounter() {
             count++;
             counterElement.textContent = count;
+            localStorage.setItem('clickCount', count);
 
             // Animation
             counterElement.style.transform = 'scale(1.2)';
