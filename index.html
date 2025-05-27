@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Простой Кликер</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: var(--tg-theme-bg-color);
+        }
+
+        #counter {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        #clickButton {
+            padding: 20px 40px;
+            font-size: 24px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            transition: transform 0.1s;
+        }
+
+        #clickButton:hover {
+            background-color: #45a049;
+        }
+
+        #clickButton:active {
+            transform: scale(0.95);
+        }
+    </style>
+</head>
+<body>
+    <div id="counter">0</div>
+    <button id="clickButton" onclick="clickCounter()">Кликни меня!</button>
+
+    <script>
+        let count = 0;
+        const counterElement = document.getElementById('counter');
+
+        function clickCounter() {
+            count++;
+            counterElement.textContent = count;
+
+            // Animation
+            counterElement.style.transform = 'scale(1.2)';
+            setTimeout(() => {
+                counterElement.style.transform = 'scale(1)';
+            }, 200);
+        }
+    </script>
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+</body>
+</html>
